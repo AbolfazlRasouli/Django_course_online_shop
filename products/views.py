@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, reverse, render
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
 from django.contrib import messages
+
+from .forms import CommentForm
 from .models import Product, Comment
 
 
@@ -12,19 +14,16 @@ class ProductListView(generic.ListView):
     template_name = 'products/product_list.html'
     context_object_name = 'products'
 
-    # def get_queryset(self):
-    #
-
 
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'products/product_detail.html'
     context_object_name = 'product'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['comment_form'] = CommentForm()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
 
 class CommentCreateView(generic.CreateView):

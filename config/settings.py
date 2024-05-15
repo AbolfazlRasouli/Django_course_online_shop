@@ -14,10 +14,8 @@ from pathlib import Path
 from environs import Env
 import os
 
-
 env = Env()
 env.read_env()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +43,8 @@ INSTALLED_APPS = [
 
     'allauth',
     'allauth.account',
+    # "crispy_forms",
+    # "crispy_bootstrap4"
 
     'accounts',
     'pages',
@@ -143,7 +143,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-
 # ==============================// settings all auth //=======================
 SITE_ID = 1
 
@@ -165,3 +164,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 # ====================================================================================
+
+
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
