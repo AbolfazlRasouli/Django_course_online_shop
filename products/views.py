@@ -19,6 +19,7 @@ class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'products/product_detail.html'
     context_object_name = 'product'
+    # messages.error('errorrrrrrrrrrrrrrrrrrrrr')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,3 +45,4 @@ class CommentCreateView(generic.CreateView):
         messages.success(self.request, _('Comment successfully created'))
 
         return super().form_valid(form)
+
